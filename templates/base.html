@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Django App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <!-- Add any additional CSS files or stylesheets here -->
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                color: #333;
+            }
+            form {
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            .btn {
+                padding: 8px 16px;
+                border-radius: 4px;
+                font-size: 14px;
+                text-decoration: none;
+            }
+            .btn-primary {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+            }
+            .btn-danger {
+                background-color: #dc3545;
+                color: #fff;
+                border: none;
+            }
+
+            .btn-secondary {
+                background-color: #6c757d;
+                color: #fff;
+                border: none;
+            }
+
+            .btn-success {
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+            }
+
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .table th,
+            .table td {
+                padding: 8px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .table th {
+                background-color: #f8f9fa;
+                text-align: left;
+            }
+
+            .table td {
+                vertical-align: top;
+            }
+
+            .table td:last-child {
+                text-align: right;
+            }
+
+            .table-striped tbody tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">My Django App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'post_list' %}">Posts</a>
+                    </li>
+
+                    <!-- Add a logout link -->
+
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+
+        <!-- Add any additional JavaScript files or scripts here -->
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
